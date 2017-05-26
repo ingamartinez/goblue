@@ -33,16 +33,6 @@ class AuthController extends Controller
             return redirect()->intended('login');
         }
 
-
-
-     //    if (Auth::attempt(['username'=> \Request::input('username'),'password'=> \Request::input('password')],false))
-     //    {
-     //       return redirect()->intended('inicio');
-     //   }
-     //   else
-     //   {
-     //     return view("login");
-     // }
     }
 
 
@@ -53,7 +43,7 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return view('login');
+        return redirect()->intended('login');
     }
 
 

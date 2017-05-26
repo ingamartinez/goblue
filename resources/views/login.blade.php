@@ -31,14 +31,6 @@
 
 
             <div class="well col-md-5 center login-box">
-                {{--@if($errors->has())--}}
-                    {{--<div class='alert alert-danger'>--}}
-                        {{--@foreach ($errors->all('<p>:message</p>') as $message)--}}
-                            {{--{!! $message !!}--}}
-                        {{--@endforeach--}}
-                    {{--</div>--}}
-                {{--@endif--}}
-
                 <form class="form-horizontal" method="POST" action="{{url('login')}}">
 
                     <fieldset>

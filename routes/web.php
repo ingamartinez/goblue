@@ -24,3 +24,12 @@ Route::get('logout', 'AuthController@getLogout');
 Route::get('/', ['as'=>'inicio', 'uses' => 'InicioController@getInicio']);
 
 Route::get('inicio', ['as'=>'inicio', 'uses' => 'InicioController@getInicio']);
+
+
+
+
+
+Route::resource('fordis','FordisController');
+
+Route::resource('dms','DMSController');
+Route::resource('goblue','GoBlueController');
