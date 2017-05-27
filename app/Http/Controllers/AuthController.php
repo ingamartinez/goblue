@@ -28,7 +28,7 @@ class AuthController extends Controller
             else
                 Auth::login($user);
 
-            return redirect()->intended('inicio');
+            return redirect()->intended('/');
         }else{
             return redirect()->intended('login');
         }

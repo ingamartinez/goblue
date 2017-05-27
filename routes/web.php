@@ -16,20 +16,31 @@
 //});
 
 
-Route::get('login', 'AuthController@getLogin');
-Route::post('login', 'AuthController@postLogin');
+Route::group(['middleware' => 'auth'], function () {
 
-Route::get('logout', 'AuthController@getLogout');
-
-Route::get('/', ['as'=>'inicio', 'uses' => 'InicioController@getInicio']);
-
-Route::get('inicio', ['as'=>'inicio', 'uses' => 'InicioController@getInicio']);
+    Route::get('/', ['as'=>'inicio', 'uses' => 'InicioController@getInicio']);
+    Route::get('logout', 'AuthController@getLogout');
 
 
+    Route::resource('fordis','FordisController');
+    Route::resource('dms','DMSController');
+    Route::resource('goblue','GoBlueController');
+
+
+});
+
+
+Route::group(['middleware' => 'guest'], function () {
+
+    Route::get('login', 'AuthController@getLogin');
+    Route::post('login', 'AuthController@postLogin');
+
+});
 
 
 
-Route::resource('fordis','FordisController');
 
-Route::resource('dms','DMSController');
-Route::resource('goblue','GoBlueController');
+
+
+
+
