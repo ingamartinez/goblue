@@ -14,7 +14,8 @@ class DMSController extends Controller
      */
     public function index()
     {
-        //
+        $dmss = Dms::all();
+        return view('dms.index',compact('dmss'));
     }
 
     /**

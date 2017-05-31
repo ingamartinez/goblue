@@ -51,37 +51,22 @@
                             <th> ID PDV </th>
                             <th> Nombre del punto </th>
                             <th> Circuito </th>
+                            <th> Codigo Sub </th>
                             <th> Estado </th>
-                            <th> Supervisor AMCOM S.A </th>
-                            <th> Sucursal Dealer </th>
-                            <th> Creado </th>
-                            <th> Modificado </th>
-                            <th> Observaciones </th>
-                            <th> Foto de la Fachada </th>
-                            <th> Foto del interior </th>
-                            <th> Foto Panoramica </th>
-                            <th></th>
+                            <th> Asesor </th>
+                            <th> Supervisor </th>
                             </thead>
                             <tbody>
-                            @foreach($goBlues as $goBlue)
-                                <tr data-id="{{$goBlue->id}}">
-                                    <td>{{$goBlue->id}}</td>
-                                    <td>{{$goBlue->idpdv}}</td>
-                                    <td>{{$goBlue->nombre_punto}}</td>
-                                    <td>{{$goBlue->circuito}}</td>
-                                    <td>{{$goBlue->estado}}</td>
-                                    <td>{{$goBlue->supervisor}}</td>
-                                    <td>{{$goBlue->sucursal_dealer}}</td>
-                                    <td>{{$goBlue->created_at}}</td>
-                                    <td>{{$goBlue->updated_at}}</td>
-                                    <td>{{$goBlue->observaciones}}</td>
-                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen1)}}"><img src="{{asset('imagenes/'.$goBlue->ruta_imagen1)}}" class="img-responsive"></a></td>
-                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen2)}}"><img src="{{asset('imagenes/'.$goBlue->ruta_imagen2)}}" class="img-responsive"></a></td>
-                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen3)}}"><img src="{{asset('imagenes/'.$goBlue->ruta_imagen3)}}" class="img-responsive"></a></td>
-
-                                    <td>
-                                       <a class="btn btn-primary" href="{{route('goblue.edit',$goBlue->id)}}">Editar</a>
-                                    </td>
+                            @foreach($dmss as $dms)
+                                <tr data-id="{{$dms->id}}">
+                                    <td>{{$dms->id}}</td>
+                                    <td>{{$dms->idpdv}}</td>
+                                    <td>{{$dms->nombre_punto}}</td>
+                                    <td>{{$dms->circuito}}</td>
+                                    <td>{{$dms->COD_SUB}}</td>
+                                    <td>{{$dms->ESTADO}}</td>
+                                    <td>{{$dms->NOMBRE_ASESOR}}</td>
+                                    <td>{{$dms->NOMBRE_SUPERVISOR}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -110,7 +95,7 @@
                 info: true,
                 autoWidth: true,
                 order: [
-                    [0, "desc"]
+                    [1, "desc"]
                 ],
                 aoColumnDefs: [{
                     bSortable: false,

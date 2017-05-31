@@ -22,7 +22,9 @@
     <meta name="author" content="Muhammad Usman">
 
     <!-- The styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link id="bs-css" href="{{asset('css/bootstrap-cerulean.min.css')}}" rel="stylesheet">
+
 
     <link href="{{asset('css/charisma-app.css')}}" rel="stylesheet">
     <link href="{{asset('bower_components/fullcalendar/dist/fullcalendar.css')}}" rel='stylesheet'>
@@ -54,6 +56,8 @@
     <!-- The fav icon -->
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}"/>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.css"/>
 
     <!-- The fav icon -->
     <link rel="shortcut icon" href="img/favicon.ico">
@@ -176,7 +180,7 @@
         <p class="col-md-9 col-sm-9 col-xs-12 copyright">&copy; <a href="{{url('/')}}" target="_blank">Amcom SA</a> {{date('Y')}}</p>
 
         <p class="col-md-3 col-sm-3 col-xs-12 powered-by">App creada por: <a
-                    href="https://www.desarrolloexperto.com">Desarrollo Expero</a></p>
+                    href="https://www.desarrolloexperto.com">Desarrollo Experto</a></p>
     </footer>
 
 </div><!--/.fluid-container-->
@@ -192,7 +196,7 @@
 <script src="{{asset('bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
 
 <!-- data table plugin -->
-<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.js"></script>
 
 <!-- select or dropdown enhancer -->
 <script src="{{asset('bower_components/chosen/chosen.jquery.min.js')}}"></script>
