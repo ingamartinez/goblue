@@ -75,9 +75,9 @@
                                     <td>{{$goBlue->created_at}}</td>
                                     <td>{{$goBlue->updated_at}}</td>
                                     <td>{{$goBlue->observaciones}}</td>
-                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen1)}}"><img src="{{asset('imagenes/'.$goBlue->ruta_imagen1)}}" class="img-responsive"></a></td>
-                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen2)}}"><img src="{{asset('imagenes/'.$goBlue->ruta_imagen2)}}" class="img-responsive"></a></td>
-                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen3)}}"><img src="{{asset('imagenes/'.$goBlue->ruta_imagen3)}}" class="img-responsive"></a></td>
+                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen1)}}"><img width="90" src="{{asset('imagenes/'.$goBlue->ruta_imagen1)}}" class="img-responsive"></a></td>
+                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen2)}}"><img width="90" src="{{asset('imagenes/'.$goBlue->ruta_imagen2)}}" class="img-responsive"></a></td>
+                                    <td><a target="_blank" href="{{asset('imagenes/'.$goBlue->ruta_imagen3)}}"><img width="90" src="{{asset('imagenes/'.$goBlue->ruta_imagen3)}}" class="img-responsive"></a></td>
 
                                     <td>
                                        <a class="btn btn-primary" href="{{route('goblue.edit',$goBlue->id)}}">Editar</a>
