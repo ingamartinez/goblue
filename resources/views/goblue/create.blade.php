@@ -707,7 +707,7 @@
     function validarDMS(idpdv) {
         $.ajax({
             type: 'GET',
-            url: '/dms/' + idpdv,
+            url: '{{url('dms')}}/' + idpdv,
             success: function (data) {
 
                 validarGoBlue(idpdv);
@@ -738,7 +738,7 @@
     function validarGoBlue(idpdv) {
         $.ajax({
             type: 'GET',
-            url: '/goblue/' + idpdv,
+            url: '{{url('goblue')}}/' + idpdv,
             success: function (data) {
                 console.log(data);
                 limpiarPuntoDeVenta();
