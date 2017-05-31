@@ -71,8 +71,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="img/logo20.png" class="hidden-xs"/>
-            <span>Charisma</span></a>
+        <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="{{url('img/logo20.png')}}" class="hidden-xs"/>
+            <span>GO BLUE</span></a>
 
         <!-- user dropdown starts -->
         <div class="btn-group pull-right">
@@ -218,6 +218,8 @@
 <script src="{{asset('js/lodash.min.js')}}"></script>
 
 <script src="{{asset('js/sweetalert2.js')}}"></script>
+
+<script src="{{asset('js/validator.js')}}"></script>
 
 
 <!-- application script for Charisma demo -->
