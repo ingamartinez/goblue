@@ -180,6 +180,7 @@
                                         <option value=""> Escoja una opción</option>
                                         <option value="DUEÑO">Dueño</option>
                                         <option value="DEPENDIENTE">Dependiente</option>
+                                        <option value="AMBOS">Ambos</option>
                                     </select>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     <div class="help-block with-errors"></div>
@@ -564,9 +565,12 @@
 
                                     <select class="form-control" name="estado" id="estado" required>
                                         <option value="">Escoja una opción</option>
+                                        <option value="FUNCIONANDO">Funcionando</option>
                                         <option value="CONCRETADO">Concretado</option>
                                         <option value="PENDIENTE">Pendiente</option>
                                         <option value="NO INTERESADO">No Interesado</option>
+                                        <option value="RETIRADO">Retirado</option>
+                                        <option value="NO APLICA">No Aplica</option>
                                     </select>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     <div class="help-block with-errors"></div>

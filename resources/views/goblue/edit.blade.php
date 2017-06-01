@@ -179,6 +179,7 @@
                                         <option value=""> Escoja una opción</option>
                                         <option value="DUEÑO" {{ $goBlue->atendido_por == 'DUEÑO' ? 'selected' : '' }}>Dueño</option>
                                         <option value="DEPENDIENTE" {{ $goBlue->atendido_por == 'DEPENDIENTE' ? 'selected' : '' }}>Dependiente</option>
+                                        <option value="AMBOS" {{ $goBlue->atendido_por == 'AMBOS' ? 'selected' : '' }}>Ambos</option>
                                     </select>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     <div class="help-block with-errors"></div>
@@ -562,9 +563,12 @@
 
                                     <select class="form-control" name="estado" id="estado" required>
                                         <option value="">Escoja una opción</option>
+                                        <option value="FUNCIONANDO" {{ $goBlue->estado_solicitud == 'FUNCIONANDO' ? 'selected' : '' }}>Funcionando</option>
                                         <option value="CONCRETADO" {{ $goBlue->estado_solicitud == 'CONCRETADO' ? 'selected' : '' }}>Concretado</option>
                                         <option value="PENDIENTE" {{ $goBlue->estado_solicitud == 'PENDIENTE' ? 'selected' : '' }}>Pendiente</option>
                                         <option value="NO INTERESADO" {{ $goBlue->estado_solicitud == 'NO INTERESADO' ? 'selected' : '' }}>No Interesado</option>
+                                        <option value="RETIRADO" {{ $goBlue->estado_solicitud == 'RETIRADO' ? 'selected' : '' }}>Retirado</option>
+                                        <option value="NO APLICA" {{ $goBlue->estado_solicitud == 'NO APLICA' ? 'selected' : '' }}>No Aplica</option>
                                     </select>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     <div class="help-block with-errors"></div>
