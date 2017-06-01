@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Dms;
 use App\Goblue;
+use App\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Mockery\Exception;
 
 class GoBlueController extends Controller
 {
@@ -107,9 +110,10 @@ class GoBlueController extends Controller
             $goBlue->estado = $dms->ESTADO;
             $goBlue->circuito = $dms->circuito;
 
-//            dd($goBlue);
-
             $goBlue->save();
+
+            $this->registerLog(Auth::user()->id,$goBlue->id,"Creación");
+
 
             return redirect()->back()->with('mensajeExito', 'Se Guardo correctamente');
 
@@ -239,6 +243,8 @@ class GoBlueController extends Controller
 
             $goBlue->save();
 
+            $this->registerLog(Auth::user()->id,$goBlue->id,"Modificación");
+
             return redirect()->back()->with('mensajeExito', 'Se Actualizó correctamente');
 
         }catch (\Exception $ex){
@@ -256,5 +262,31 @@ class GoBlueController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param $id_user
+     * @param $id_idpdv
+     * @param $tipo
+     * @return boolean
+     */
+
+    function registerLog($id_user, $id_idpdv, $tipo)
+    {
+        try{
+            $log = new Log();
+            $log->for_users_id=$id_user;
+            $log->tabla_goblue_id=$id_idpdv;
+            $log->tipo=$tipo;
+
+            $log->save();
+
+            echo $log;
+
+            return true;
+        }catch (\Exception $ex){
+            return false;
+        }
+
     }
 }

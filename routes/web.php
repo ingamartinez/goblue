@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('dms','DMSController');
     Route::resource('goblue','GoBlueController');
 
+    Route::resource('logger','LogController');
+
 
 });
 
@@ -36,11 +38,3 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('login', 'AuthController@postLogin');
 
 });
-
-
-
-
-
-
-
-

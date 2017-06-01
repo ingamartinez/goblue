@@ -19,7 +19,7 @@
                     <ul class="nav nav-pills nav-stacked">
                         <li><a href="{{url('#')}}"><i class="glyphicon glyphicon-blackboard"></i> Resumen</a></li>
                         <li><a href="{{url('#')}}"><i class="glyphicon glyphicon-flag"></i> Graficos</a></li>
-                        <li><a href="{{url('#')}}"><i class="glyphicon glyphicon-list-alt"></i> Modificaciones y Creaciones</a></li>
+                        <li><a href="{{url('logger')}}"><i class="glyphicon glyphicon-list-alt"></i> Modificaciones y Creaciones</a></li>
                     </ul>
                 </li>
             @endif
