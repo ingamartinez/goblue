@@ -263,8 +263,10 @@
 
                                     <select class="form-control" name="infr_goblue" id="infr_goblue" required>
                                         <option value="">Escoja una opción</option>
-                                        <option value="SI">Si</option>
-                                        <option value="NO">No</option>
+                                        <option value="BUENA">Buena</option>
+                                        <option value="REGULAR">Regular</option>
+                                        <option value="MALA">Mala</option>
+                                        
                                     </select>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     <div class="help-block with-errors"></div>

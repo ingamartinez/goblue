@@ -262,8 +262,9 @@
 
                                     <select class="form-control" name="infr_goblue" id="infr_goblue" required>
                                         <option value="">Escoja una opción</option>
-                                        <option value="SI" {{ $goBlue->infraestructura == 'SI' ? 'selected' : '' }}>Si</option>
-                                        <option value="NO" {{ $goBlue->infraestructura == 'NO' ? 'selected' : '' }}>No</option>
+                                        <option value="BUENA" {{ $goBlue->infraestructura == 'BUENA' ? 'selected' : '' }}>Buena</option>
+                                        <option value="REGULAR" {{ $goBlue->infraestructura == 'REGULAR' ? 'selected' : '' }}>Regular</option>
+                                        <option value="MALA" {{ $goBlue->infraestructura == 'MALA' ? 'selected' : '' }}>Mala</option>
                                     </select>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     <div class="help-block with-errors"></div>
