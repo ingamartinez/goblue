@@ -666,7 +666,7 @@
                 $('#estado').val(data.ESTADO);
             },
             error: function (qXHR, textStatus, errorThrown) {
-//                    console.log(qXHR.status,textStatus,errorThrown);
+//                    console.reportes(qXHR.status,textStatus,errorThrown);
                 limpiarPuntoDeVenta();
                 swal(
                     'IDPDV no Encontrado',

@@ -80,7 +80,7 @@ $(document).ready(function () {
     var
         History = window.History, // Note: We are using a capital H instead of a lower h
         State = History.getState(),
-        $log = $('#log');
+        $log = $('#reportes');
 
     //bind to State Change
     History.Adapter.bind(window, 'statechange', function () { // Note: We are using statechange instead of popstate

@@ -16,7 +16,7 @@ class LogController extends Controller
     {
         $logs = Log::all();
 
-        return view('log.index',compact('logs'));
+        return view('reportes.log',compact('logs'));
     }
 
 }

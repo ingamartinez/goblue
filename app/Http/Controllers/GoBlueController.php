@@ -7,6 +7,7 @@ use App\Goblue;
 use App\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 use Mockery\Exception;
 
 class GoBlueController extends Controller
@@ -42,28 +43,32 @@ class GoBlueController extends Controller
     public function store(Request $request)
     {
         try{
-            $ruta_imagen1= \Request::input('idpdv');
-            $ruta_imagen1= $ruta_imagen1.'_fachada_'.date('d-m-y');
-            $nombredelpunto=\Request::input('nombre_punto');
-            $ruta_imagen1=$ruta_imagen1.'_'.$nombredelpunto.'.jpg';
-            $destinationPath ='imagenes';
-            $request->file('img_fachada')->move($destinationPath, $ruta_imagen1);
-
-            $ruta_imagen2= \Request::input('idpdv');
-            $ruta_imagen2= $ruta_imagen2.'_interior_'.date('d-m-y');
-            $nombredelpunto=\Request::input('nombre_punto');
-            $ruta_imagen2=$ruta_imagen2.'_'.$nombredelpunto.'.jpg';
-            $destinationPath ='imagenes';
-            $request->file('img_interna')->move($destinationPath, $ruta_imagen2);
-
-            $ruta_imagen3= \Request::input('idpdv');
-            $ruta_imagen3= $ruta_imagen3.'_panoramica_'.date('d-m-y');
-            $nombredelpunto=\Request::input('nombre_punto');
-            $ruta_imagen3=$ruta_imagen3.'_'.$nombredelpunto.'.jpg';
-            $destinationPath ='imagenes';
-            $request->file('img_panoramica')->move($destinationPath, $ruta_imagen3);
 
             $goBlue = new Goblue();
+
+            $dms = Dms::where('idpdv',$request->input('idpdv'))->firstOrFail();
+
+            $goBlue->supervisor = $dms->NOMBRE_SUPERVISOR;
+            $goBlue->sucursal_dealer = $dms->DISTRIBUIDOR;
+            $goBlue->zona = $dms->CIUDAD;
+            $goBlue->nombre_punto = $dms->nombre_punto;
+            $goBlue->estado = $dms->ESTADO;
+            $goBlue->circuito = $dms->circuito;
+
+            $ruta=$request->input('idpdv').'_fachada_'.$dms->nombre_punto.'.jpg';
+            Image::make($request->file('img_fachada'))->save('imagenes/'.$ruta);
+            Image::make($request->file('img_fachada'))->resize(100, 50)->save('imagenes/min/'.$ruta);
+            $goBlue->ruta_imagen1 = $ruta;
+
+            $ruta=$request->input('idpdv').'_interior_'.$dms->nombre_punto.'.jpg';
+            Image::make($request->file('img_interna'))->save('imagenes/'.$ruta);
+            Image::make($request->file('img_interna'))->resize(100, 50)->save('imagenes/min/'.$ruta);
+            $goBlue->ruta_imagen2 = $ruta;
+
+            $ruta=$request->input('idpdv').'_panoramica_'.$dms->nombre_punto.'.jpg';
+            Image::make($request->file('img_panoramica'))->save('imagenes/'.$ruta);
+            Image::make($request->file('img_panoramica'))->resize(100, 50)->save('imagenes/min/'.$ruta);
+            $goBlue->ruta_imagen3 = $ruta;
 
             $goBlue->idpdv = $request->input('idpdv');
             $goBlue->observaciones = $request->input('observaciones');
@@ -97,18 +102,8 @@ class GoBlueController extends Controller
             $goBlue->necesita_pintura_interior = $request->input('pintura_int');
             $goBlue->necesita_vinilo = $request->input('vinilo');
             $goBlue->estado_solicitud = $request->input('estado');
-            $goBlue->ruta_imagen1 = $ruta_imagen1;
-            $goBlue->ruta_imagen2 = $ruta_imagen2;
-            $goBlue->ruta_imagen3 = $ruta_imagen3;
 
-            $dms = Dms::where('idpdv',$request->input('idpdv'))->firstOrFail();
 
-            $goBlue->supervisor = $dms->NOMBRE_SUPERVISOR;
-            $goBlue->sucursal_dealer = $dms->DISTRIBUIDOR;
-            $goBlue->zona = $dms->CIUDAD;
-            $goBlue->nombre_punto = $dms->nombre_punto;
-            $goBlue->estado = $dms->ESTADO;
-            $goBlue->circuito = $dms->circuito;
 
             $goBlue->save();
 
@@ -199,39 +194,6 @@ class GoBlueController extends Controller
             $goBlue->necesita_vinilo = $request->input('vinilo');
             $goBlue->estado_solicitud = $request->input('estado');
 
-            if ($request->hasFile('img_fachada')) {
-                $ruta_imagen1= \Request::input('idpdv');
-                $ruta_imagen1= $ruta_imagen1.'_fachada_'.date('d-m-y');
-                $nombredelpunto=\Request::input('nombre_punto');
-                $ruta_imagen1=$ruta_imagen1.'_'.$nombredelpunto.'.jpg';
-                $destinationPath ='imagenes';
-                $request->file('img_fachada')->move($destinationPath, $ruta_imagen1);
-
-                $goBlue->ruta_imagen1 = $ruta_imagen1;
-            }
-
-            if ($request->hasFile('img_interna')) {
-                $ruta_imagen2= \Request::input('idpdv');
-                $ruta_imagen2= $ruta_imagen2.'_interior_'.date('d-m-y');
-                $nombredelpunto=\Request::input('nombre_punto');
-                $ruta_imagen2=$ruta_imagen2.'_'.$nombredelpunto.'.jpg';
-                $destinationPath ='imagenes';
-                $request->file('img_interna')->move($destinationPath, $ruta_imagen2);
-
-                $goBlue->ruta_imagen2 = $ruta_imagen2;
-            }
-
-            if ($request->hasFile('img_panoramica')) {
-                $ruta_imagen3= \Request::input('idpdv');
-                $ruta_imagen3= $ruta_imagen3.'_panoramica_'.date('d-m-y');
-                $nombredelpunto=\Request::input('nombre_punto');
-                $ruta_imagen3=$ruta_imagen3.'_'.$nombredelpunto.'.jpg';
-                $destinationPath ='imagenes';
-                $request->file('img_panoramica')->move($destinationPath, $ruta_imagen3);
-
-                $goBlue->ruta_imagen3 = $ruta_imagen3;
-            }
-
             $dms = Dms::where('idpdv',$request->input('idpdv'))->firstOrFail();
 
             $goBlue->supervisor = $dms->NOMBRE_SUPERVISOR;
@@ -240,6 +202,33 @@ class GoBlueController extends Controller
             $goBlue->nombre_punto = $dms->nombre_punto;
             $goBlue->estado = $dms->ESTADO;
             $goBlue->circuito = $dms->circuito;
+
+            if ($request->hasFile('img_fachada')) {
+                $ruta=$request->input('idpdv').'_fachada_'.$dms->nombre_punto.'.jpg';
+
+                Image::make($request->file('img_fachada'))->save('imagenes/'.$ruta);
+                Image::make($request->file('img_fachada'))->resize(100, 50)->save('imagenes/min/'.$ruta);
+
+                $goBlue->ruta_imagen1 = $ruta;
+            }
+
+            if ($request->hasFile('img_interna')) {
+                $ruta=$request->input('idpdv').'_interior_'.$dms->nombre_punto.'.jpg';
+
+                Image::make($request->file('img_interna'))->save('imagenes/'.$ruta);
+                Image::make($request->file('img_interna'))->resize(100, 50)->save('imagenes/min/'.$ruta);
+
+                $goBlue->ruta_imagen2 = $ruta;
+            }
+
+            if ($request->hasFile('img_panoramica')) {
+                $ruta=$request->input('idpdv').'_panoramica_'.$dms->nombre_punto.'.jpg';
+
+                Image::make($request->file('img_panoramica'))->save('imagenes/'.$ruta);
+                Image::make($request->file('img_panoramica'))->resize(100, 50)->save('imagenes/min/'.$ruta);
+
+                $goBlue->ruta_imagen3 = $ruta;
+            }
 
             $goBlue->save();
 

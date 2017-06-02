@@ -23,7 +23,7 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an exception.
+     * Report or reportes an exception.
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *

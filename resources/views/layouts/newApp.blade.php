@@ -225,6 +225,7 @@
 
 <script src="{{asset('js/validator.js')}}"></script>
 
+<script src="{{asset('js/Chart.bundle.min.js')}}"></script>
 
 <!-- application script for Charisma demo -->
 <script src="{{asset('js/charisma.js')}}"></script>

@@ -12,7 +12,7 @@
                 <a href="{{url('/')}}">Inicio</a>
             </li>
             <li>
-                <a href="{{url('log')}}">Registro de creación y modificación</a>
+                <a href="{{url('logger')}}">Registro de creación y modificación</a>
             </li>
         </ul>
     </div>

@@ -112,15 +112,15 @@ return [
     | Logging Configuration
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the log settings for your application. Out of
+    | Here you may configure the reportes settings for your application. Out of
     | the box, Laravel uses the Monolog PHP logging library. This gives
-    | you a variety of powerful log handlers / formatters to utilize.
+    | you a variety of powerful reportes handlers / formatters to utilize.
     |
     | Available Settings: "single", "daily", "syslog", "errorlog"
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'reportes' => env('APP_LOG', 'single'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -177,6 +177,17 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Intervention Image
+         */
+        Intervention\Image\ImageServiceProvider::class,
+
+        /*
+         * Fx3costa LaravelChartJs
+         */
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
+
+
     ],
 
     /*
@@ -225,6 +236,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*
+         * Intervention Image
+         */
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 
